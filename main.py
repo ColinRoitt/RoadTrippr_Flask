@@ -97,30 +97,52 @@ def callback():
     travelTime = 0
 
     #get lat and long
-    geocode_result = gmaps.geocode(session['startplace'])
-    orig_lat = geocode_result[0]['geometry']['bounds']['northeast']['lat']
-    orig_long = geocode_result[0]['geometry']['bounds']['northeast']['lng']
+    if session['startplace'] == "":
+        startplace = 'london'
+    else:
+        startplace = session['startplace']
+    if session['endplace'] == "":
+        endplace = 'canterbury'
+    else:
+        endplace = session['endplace']
+    
+    geocode_result = gmaps.geocode(startplace)
+    orig_lat_ne = geocode_result[0]['geometry']['bounds']['northeast']['lat']
+    orig_lng_ne = geocode_result[0]['geometry']['bounds']['northeast']['lng']
+    orig_lat_sw = geocode_result[0]['geometry']['bounds']['southwest']['lat']
+    orig_lng_sw = geocode_result[0]['geometry']['bounds']['southwest']['lng']
 
-    geocode_result = gmaps.geocode(session['endplace'])
-    end_lat = geocode_result[0]['geometry']['bounds']['northeast']['lat']
-    end_long = geocode_result[0]['geometry']['bounds']['northeast']['lng']
+    geocode_result = gmaps.geocode(endplace)
+    end_lat_ne = geocode_result[0]['geometry']['bounds']['northeast']['lat']
+    end_lng_ne = geocode_result[0]['geometry']['bounds']['northeast']['lng']
+    end_lat_sw = geocode_result[0]['geometry']['bounds']['southwest']['lat']
+    end_lng_sw = geocode_result[0]['geometry']['bounds']['southwest']['lng']
 
-    start = midpoint(orig_lat, orig_lng, end_lat, end_lng)
-
+    orig_coord = midpoint(orig_lat_ne, orig_lng_ne, orig_lat_sw, orig_lng_sw)
+    dest_coord = midpoint(end_lat_ne, end_lng_ne, end_lat_sw, end_lng_sw)
 
     #get travel distance
-    # orig_coord = orig_lat, orig_lng
-    # dest_coord = dest_lat, dest_lng
-    # url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins={0}&destinations={1}&mode=driving&language=en-EN&sensor=false".format(str(orig_coord),str(dest_coord))
-    # result= simplejson.load(urllib.urlopen(url))
-    # driving_time = result['rows'][0]['elements'][0]['duration']['value']
+    url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=" + str(orig_coord)[1:-1] + "&destinations=" + str(dest_coord)[1:-1] + "&mode=driving&language=en-EN&sensor=false"
+    result = simplejson.load(urllib.urlopen(url))
+    driving_time = result['rows'][0]['elements'][0]['duration']['value']
+
+    tracksToShow = [orig_coord, dest_coord, url, result, driving_time]
+
+    #compile playlist
+    
     
 
     return render_template("display.html",sorted_array=tracksToShow)
 
 def midpoint(x1, y1, x2, y2):
     midpoint = 0
+    x = abs(x1 - x2)
+    x_final = (x/2) + min(x1, x2)
 
+    y = abs(y1 - y2)
+    y_final = (y/2) + min(y1, y2)
+
+    midpoint = x_final, y_final
     return midpoint
 
 

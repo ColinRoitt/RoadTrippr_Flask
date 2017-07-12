@@ -4,8 +4,11 @@ import requests
 import base64
 import urllib
 import spotipy
+import googlemaps
 import datetime
+import simplejson
 from random import randint
+
 
 # Authentication Steps, paramaters, and responses are defined at https://developer.spotify.com/web-api/authorization-guide/
 # Visit this url to see all the steps, parameters, and expected response.
@@ -89,10 +92,36 @@ def callback():
     authorization_header = {"Authorization":"Bearer {}".format(access_token)}
 
     # code to do the thing
+    #init gmap object
+    gmaps = googlemaps.Client(key='AIzaSyBZdjs2225sM2jqaZJ_g37PanppIRcHBBU')
+    travelTime = 0
 
+    #get lat and long
+    geocode_result = gmaps.geocode(session['startplace'])
+    orig_lat = geocode_result[0]['geometry']['bounds']['northeast']['lat']
+    orig_long = geocode_result[0]['geometry']['bounds']['northeast']['lng']
+
+    geocode_result = gmaps.geocode(session['endplace'])
+    end_lat = geocode_result[0]['geometry']['bounds']['northeast']['lat']
+    end_long = geocode_result[0]['geometry']['bounds']['northeast']['lng']
+
+    start = midpoint(orig_lat, orig_lng, end_lat, end_lng)
+
+
+    #get travel distance
+    # orig_coord = orig_lat, orig_lng
+    # dest_coord = dest_lat, dest_lng
+    # url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins={0}&destinations={1}&mode=driving&language=en-EN&sensor=false".format(str(orig_coord),str(dest_coord))
+    # result= simplejson.load(urllib.urlopen(url))
+    # driving_time = result['rows'][0]['elements'][0]['duration']['value']
     
 
     return render_template("display.html",sorted_array=tracksToShow)
+
+def midpoint(x1, y1, x2, y2):
+    midpoint = 0
+
+    return midpoint
 
 
 if __name__ == "__main__":

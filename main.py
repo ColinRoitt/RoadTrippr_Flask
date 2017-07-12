@@ -126,10 +126,13 @@ def callback():
     result = simplejson.load(urllib.urlopen(url))
     driving_time = result['rows'][0]['elements'][0]['duration']['value']
 
-    tracksToShow = [orig_coord, dest_coord, url, result, driving_time]
 
     #compile playlist
-    
+    sp = spotipy.Spotify(auth=access_token)
+    genre =session['genre']
+    results = sp.recommendations(seed_genre = genre)
+
+    tracksToShow = [orig_coord, dest_coord, url, result, driving_time, results]
     
 
     return render_template("display.html",sorted_array=tracksToShow)

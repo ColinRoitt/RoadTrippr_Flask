@@ -90,6 +90,8 @@ def callback():
 
     # code to do the thing
 
+    
+
     return render_template("display.html",sorted_array=tracksToShow)
 
 

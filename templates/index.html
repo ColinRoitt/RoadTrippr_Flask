@@ -1,0 +1,165 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="" content="roadtripr">
+    <link rel="icon" href="">
+    <title>roadtripr</title>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/new.css" />
+
+    <!-- js -->
+    <script type="text/javascript" src="static/js/new.js"></script>
+</head>
+
+
+<body>
+  <!-- Title and Picture -->
+  <header>
+    <div class="container header inner">
+      <nav class="navbar">
+        <div class="container">
+          <div style="text-align:center" class="titletxt"> Roadtripr </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <br></br>
+
+  <div class="container text-center texty" id="whatis">
+      <h2>What is roadtripr?</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. </p>
+      <P>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+        <button class="btn btn-lg btn-roadtripr" onclick='start1()'>make your playlist</button>
+      </div>
+    </div>
+  </div>
+
+<!-- google maps things -->
+
+  <div class="container text-center" style="display:none" id="googlemaps">
+    <h3>Tell Us About Your Trip</h3>
+    <p>Where does your journey start?</p>
+    <input id="startplace" class="btn btn-lg  btn-roadtripr "></input>
+    <br></br>
+    <p>Where does your journey end?</p>
+    <input id="endplace" class="btn btn-lg btn-roadtripr"></input>
+    <br></br>
+    <button id="start" class="btn btn-lg btn-roadtripr" type="start" onclick="mainform()">continue</button>
+  </div>
+
+  <!-- this is where the form starts -->
+  <div class="container text-center" style="display:none" id="mainform">  <!-- style="display:none" -->
+    <hr>
+    <h3>Tell us about this Playlist</h3>
+    <br>
+    <label>
+      <input id="randomise" type="checkbox" value="randomise"> <h4>Randomise All</h4>
+    </label>
+    <hr>
+
+    <!-- Name -->
+    <h3>Name your Playlist</h3>
+    <input id="playlistname" class="btn btn-lg  btn-roadtripr"></input>
+    <hr>
+
+    <!--Genres -->
+    <h3>Pick A Genre</h3>
+    <input type="text" id="genre" class="btn-roadtripr btn-lg btn" list="genres" placeholder="e.g. Alt Rock">
+    <datalist id="genres">
+        <option value="Afrobeat">
+        <option value="Alt-Rock">
+        <option value="Alternative">
+        <option value="Ambient">
+        <option value="Anime">
+        <option value="Black-Metal">
+        <option value="Bluegrass">
+        <option value="Blues">
+        <option value="Bossanova">
+        <option value="Brazil">
+        <option value="Breakbeat">
+        <option value="British">
+        <option value="Cantopop">
+        <option value="Chicago-House">
+        <option value="Children">
+        <option value="Chill">
+        <option value="Classical">
+        <option value="Club">
+        <option value="Comedy">
+        <option value="Country">
+        <option value="Dance">
+        <option value="Dancehall">
+        <option value="Death-Metal">
+        <option value="Deep-House">
+        <option value="Detroit-Techno">
+        <option value="Disco">
+        <option value="Disney">
+        <option value="Drum-and-Bass">
+        <option value="Dubstep">
+        <option value="EDM">
+        <option value="Electro">
+        <option value="Electronic">
+        <option value="Emo">
+        <option value="Folk">
+        <option value="Grunge">
+        <option value="Hard-Rock">
+        <option value="Hardcore">
+        <option value="Heavy-Metal">
+        <option value="Hip-Hop">
+        <option value="House">
+        <option value="Indie">
+        <option value="Indie-Pop">
+        <option value="Industrial">
+        <option value="Jazz">
+        <option value="Latin">
+        <option value="Opera">
+        <option value="Pop">
+        <option value="Punk">
+        <option value="Rock-n-Roll">
+        <option value="Ska">
+        <option value="Smash Mouth">
+        <option value="Synth-Pop">
+        <option value="Techno">
+        <option value="Work-Out">
+        <option value="World Music">
+        </datalist>
+
+        <!-- end of genre picking -->
+        <hr>
+        <!-- the section of hatred -->
+        <h3>Any artists you specifically hate?</h3>
+        <input id="hated" class="btn btn-lg btn-roadtripr"></input>
+        <!-- end of hatred section -->
+        <hr>
+        <!-- start of spice or nice -->
+        <h3>Nice or Spice?</h3>
+        <label>
+          <input id="explicit" type="checkbox" value="randomise"> Include Explicit Songs
+        </label>
+        <br>
+        <label>
+          <input id="nonexplicit" type="checkbox" value="randomise"> Include Non-Explicit Songs
+        </label>
+        <hr>
+        <button id="start" class="btn btn-lg btn-roadtripr" type="submit" onclick="submit()">submit</button>
+        <!--end of form -->
+      </div>
+
+    <div class="container text-center" style="display:none" id="thanks">
+      <br></br>
+      <h3>Thank you for using Roadtripr! We really appreciate it</h3>
+      <br></br>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <hr>
+    </footer>
+
+  </body>
+  </html>

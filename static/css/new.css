@@ -1,0 +1,56 @@
+.btn-roadtripr{
+  background-color: #959f4b;
+  border: none;
+  color: white;
+}
+
+.btn-roadtripr:hover{
+  background-color: #c5c486;
+}
+
+.navbar-roadtripr{
+  background-color: #959f4b;
+}
+
+.navbar-title{
+  color: white;
+}
+
+.input{
+    color: white;
+}
+
+.navbar-txt{
+  color: white;
+}
+
+.titletxt{
+  line-height: 200px;
+  font-size: 100px;
+}
+
+.texty{
+width: 700px;
+
+}
+header {
+  background: url("prentious.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  background-color: #060;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+}
+footer{
+  background-color: #959f4b;
+  width: 100%;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+}
+ hr{
+   width: 40%;
+ }

@@ -145,15 +145,6 @@ def callback():
     genreToSearch = session['genre']
     recomendationResult = sp.recommendations(seed_genres = genreToSearch)
 
-
-
-
-
-
-
-
-
-
     tracksToShow = [orig_coord, dest_coord, url, result, driving_time, recomendationResult]
     
 

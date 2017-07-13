@@ -18,8 +18,8 @@ app = Flask(__name__)
 app.secret_key = 'asdjhu3ad3hu' #used to run sessions
 
 #  Client Keys
-CLIENT_ID = "b5c14ec1f7b64169bb063d7448a3453e"
-CLIENT_SECRET = "32c71ce87d6242da85aae92bcaa78aee"
+CLIENT_ID = "" #KEY REMOVED FOR SECURITY
+CLIENT_SECRET = "" #KEY REMOVED FOR SECURITY
 
 # Spotify URLS
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
@@ -106,7 +106,7 @@ def callback():
 
     # code to do the thing
     #init gmap object
-    gmaps = googlemaps.Client(key='AIzaSyBZdjs2225sM2jqaZJ_g37PanppIRcHBBU')
+    gmaps = googlemaps.Client(key='') #KEY REMOVED FOR SECURITY
     travelTime = 0
 
     #get lat and long

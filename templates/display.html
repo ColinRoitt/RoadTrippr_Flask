@@ -1,8 +1,53 @@
-<doctype html>
+<!DOCTYPE>
 <html>
-	<ol start=0>
-		{% for item in sorted_array%}
-			<li> {{ item }} </li>
-		{% endfor %}
-	</ol>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="" content="roadtripr">
+		<link rel="icon" href="">
+		<title>roadtripr</title>
+
+		<!-- Core CSS -->
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/new.css" />
+
+		<!--JS-->
+		<script type="text/javascript" src="../static/js/new.js"></script>
+		
+	</head>
+	<body>
+		<header>
+			<div class="container header inner">
+			<nav class="navbar">
+				<div class="container">
+				<div style="text-align:center" class="titletxt"><strong> Roadtripr</strong> </div>
+				</div>
+			</nav>
+			</div>
+		</header>
+
+		<br></br>
+
+		<div class="container text-center" style="display:inline" id="thanks">
+			<br></br>
+			<h3>Thank you for using Roadtripr!</h3>
+			<br></br>
+		</div>
+
+		
+		<div style="width:800px; margin:0 auto;">
+			<ul>
+				{% for item in sorted_array%}
+					<li> {{ item }} </li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<!-- footer -->
+		<footer>
+		
+		</footer>
+	</body>
 </html>

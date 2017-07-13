@@ -143,9 +143,18 @@ def callback():
     #compile playlist
     sp = spotipy.Spotify(auth=access_token)
     genreToSearch = session['genre']
-    results = sp.recommendations(seed_genres = genreToSearch)
+    recomendationResult = sp.recommendations(seed_genres = genreToSearch)
 
-    tracksToShow = [orig_coord, dest_coord, url, result, driving_time, results]
+
+
+
+
+
+
+
+
+
+    tracksToShow = [orig_coord, dest_coord, url, result, driving_time, recomendationResult]
     
 
     return render_template("display.html",sorted_array=tracksToShow)

@@ -67,7 +67,7 @@
     <!-- Name -->
     <h3>Name your Playlist</h3>
     <h4>No spaces!</h4>
-    <input id="playlistname" class="btn btn-lg  btn-roadtripr"></input>
+    <input id="playlistname" class="btn btn-lg  btn-roadtripr" placeholder="newPlaylist"></input>
     <hr>
 
     <!--Genres -->
@@ -80,27 +80,28 @@
         {% endfor %}        
     </datalist>
 
-        <!-- end of genre picking -->
-        <hr>
-        <!-- the section of hatred -->
-        <h3>Any artists you specifically hate?</h3>
-        <h4>Comma seperated artists</h4>
-        <input id="hated" class="btn btn-lg btn-roadtripr"></input>
-        <!-- end of hatred section -->
-        <hr>
-        <!-- start of spice or nice -->
-        <h3>Nice or Spice?</h3>
-        <label>
-          <input id="explicit" type="checkbox" value="randomise"> Include Explicit Songs
-        </label>
-        <br>
-        <label>
-          <input id="nonexplicit" type="checkbox" value="randomise" checked> Include Non-Explicit Songs
-        </label>
-        <hr>
-        <button id="start" class="btn btn-lg btn-roadtripr" type="submit" onclick="submit()">submit</button>
-        <!--end of form -->
-      </div>
+    <!-- end of genre picking -->
+    <hr>
+    <!-- the section of hatred -->
+    <h3>Any artists you specifically hate?</h3>
+    <h4>Comma seperated artists</h4>
+    <input id="hated" class="btn btn-lg btn-roadtripr"></input>
+    <!-- end of hatred section -->
+    <hr>
+    <!-- start of spice or nice -->
+    <h3>Nice or Spice?</h3>
+    <label>
+      <input id="explicit" type="checkbox" value="randomise"> Include Explicit Songs
+    </label>
+    <br>
+    <label>
+      <input id="nonexplicit" type="checkbox" value="randomise" checked> Include Non-Explicit Songs
+    </label>
+    <hr>
+    <button id="start" class="btn btn-lg btn-roadtripr" type="submit" onclick="submit()">submit</button>
+    <!--end of form -->
+   
+  </div>
 
     <div class="container text-center" style="display:none" id="thanks">
       <br></br>

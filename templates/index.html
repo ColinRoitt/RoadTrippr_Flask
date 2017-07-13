@@ -73,62 +73,10 @@
     <h3>Pick A Genre</h3>
     <input type="text" id="genre" class="btn-roadtripr btn-lg btn" list="genres" placeholder="e.g. Alt Rock">
     <datalist id="genres">
-        <option value="Afrobeat">
-        <option value="Alt-Rock">
-        <option value="Alternative">
-        <option value="Ambient">
-        <option value="Anime">
-        <option value="Black-Metal">
-        <option value="Bluegrass">
-        <option value="Blues">
-        <option value="Bossanova">
-        <option value="Brazil">
-        <option value="Breakbeat">
-        <option value="British">
-        <option value="Cantopop">
-        <option value="Chicago-House">
-        <option value="Children">
-        <option value="Chill">
-        <option value="Classical">
-        <option value="Club">
-        <option value="Comedy">
-        <option value="Country">
-        <option value="Dance">
-        <option value="Dancehall">
-        <option value="Death-Metal">
-        <option value="Deep-House">
-        <option value="Detroit-Techno">
-        <option value="Disco">
-        <option value="Disney">
-        <option value="Drum-and-Bass">
-        <option value="Dubstep">
-        <option value="EDM">
-        <option value="Electro">
-        <option value="Electronic">
-        <option value="Emo">
-        <option value="Folk">
-        <option value="Grunge">
-        <option value="Hard-Rock">
-        <option value="Hardcore">
-        <option value="Heavy-Metal">
-        <option value="Hip-Hop">
-        <option value="House">
-        <option value="Indie">
-        <option value="Indie-Pop">
-        <option value="Industrial">
-        <option value="Jazz">
-        <option value="Latin">
-        <option value="Opera">
-        <option value="Pop">
-        <option value="Punk">
-        <option value="Rock-n-Roll">
-        <option value="Ska">
-        <option value="Smash Mouth">
-        <option value="Synth-Pop">
-        <option value="Techno">
-        <option value="Work-Out">
-        <option value="World Music">
-        </datalist>
+        {% for item in sorted_array%}
+        <option value = {{ item }} />
+        {% endfor %}        
+    </datalist>
 
         <!-- end of genre picking -->
         <hr>

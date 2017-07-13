@@ -49,7 +49,13 @@ auth_query_parameters = {
 
 @app.route("/")
 def initPg():
-    return render_template("index.html")
+    token_temp = 'BQBnWdfXbWhU_MFOJ0-Ti4dlmzjw6XIOy7jLhbllBGkyph1LA8saQ4sMWnusJ8NcPnMOyFNjYx8f9gdjk8CW3oxdxgu2_LSy5bkFhSTAFptot745tDkf27emtnT44-PfdembClUIfVujAFMnhXs7Z1SuuhUMrZzO30OZQXnJvkpO9OiPmItAkOXKxLelRpRTff0'
+    spot = spotipy.Spotify(token_temp)
+    genres = json.loads(spot.recommendation_genre_seeds())
+    print(genres['genres'])
+    
+
+    return render_template("index.html")#, sorted_array = genres)
 
 @app.route("/n")
 def index():
@@ -130,7 +136,7 @@ def callback():
     #compile playlist
     sp = spotipy.Spotify(auth=access_token)
     genre =session['genre']
-    results = sp.recommendations(seed_genre = genre)
+    results = sp.recommendations(seed_genres = genre)
 
     tracksToShow = [orig_coord, dest_coord, url, result, driving_time, results]
     

@@ -66,11 +66,13 @@
 
     <!-- Name -->
     <h3>Name your Playlist</h3>
+    <h4>No spaces!</h4>
     <input id="playlistname" class="btn btn-lg  btn-roadtripr"></input>
     <hr>
 
     <!--Genres -->
     <h3>Pick A Genre</h3>
+    <h4>Just start typing to search</h4>
     <input type="text" id="genre" class="btn-roadtripr btn-lg btn" list="genres" placeholder="e.g. Alt Rock">
     <datalist id="genres">
         {% for item in sorted_array%}
@@ -82,6 +84,7 @@
         <hr>
         <!-- the section of hatred -->
         <h3>Any artists you specifically hate?</h3>
+        <h4>Comma seperated artists</h4>
         <input id="hated" class="btn btn-lg btn-roadtripr"></input>
         <!-- end of hatred section -->
         <hr>
@@ -92,7 +95,7 @@
         </label>
         <br>
         <label>
-          <input id="nonexplicit" type="checkbox" value="randomise"> Include Non-Explicit Songs
+          <input id="nonexplicit" type="checkbox" value="randomise" checked> Include Non-Explicit Songs
         </label>
         <hr>
         <button id="start" class="btn btn-lg btn-roadtripr" type="submit" onclick="submit()">submit</button>

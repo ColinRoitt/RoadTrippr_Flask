@@ -48,14 +48,20 @@ auth_query_parameters = {
 }
 
 @app.route("/")
-def initPg():
-    token_temp = 'BQBnWdfXbWhU_MFOJ0-Ti4dlmzjw6XIOy7jLhbllBGkyph1LA8saQ4sMWnusJ8NcPnMOyFNjYx8f9gdjk8CW3oxdxgu2_LSy5bkFhSTAFptot745tDkf27emtnT44-PfdembClUIfVujAFMnhXs7Z1SuuhUMrZzO30OZQXnJvkpO9OiPmItAkOXKxLelRpRTff0'
-    spot = spotipy.Spotify(token_temp)
-    genres = json.loads(spot.recommendation_genre_seeds())
-    print(genres['genres'])
+def initPg():  #NOW INVALID TOKEN
+    # token_temp = 'BQAsNKRYrdH1gvmC2O8pIe5Q_65PCIKL8GmjAplNwhfADRNfMxZy356OaEP9fslFg-c65O0FSRuUYxDX-2Tt7vuJ00qFj37rpKTWyVlWrxVbfQzwM3sCPAfwz4c16y2vR5UtVQAZcmZcCJeQcS2GXep4fvO-Q1hn1TGKsc9QqJx51e1sXZ0Elx9SIn4XDxvWrUI' 
+    # spot = spotipy.Spotify(token_temp)
+    # genres = spot.recommendation_genre_seeds()
+    # genresArr = []
+    # for item in genres['genres']:
+    #     item.replace(" ", "")
+    #     genresArr.append(item)
+    # genresArr.append('SmashMouth')
+
+    genresArr = ['acostic', 'afrobeat', 'alt-rock', 'alternative', 'ambient', 'anime', 'black-metal', 'blegrass', 'bles', 'bossanova', 'brazil', 'breakbeat', 'british', 'cantopop', 'chicago-hose', 'children', 'chill', 'classical', 'clb', 'comedy', 'contry', 'dance', 'dancehall', 'death-metal', 'deep-hose', 'detroit-techno', 'disco', 'disney', 'drm-and-bass', 'db', 'dbstep', 'edm', 'electro', 'electronic', 'emo', 'folk', 'forro', 'french', 'fnk', 'garage', 'german', 'gospel', 'goth', 'grindcore', 'groove', 'grnge', 'gitar', 'happy', 'hard-rock', 'hardcore', 'hardstyle', 'heavy-metal', 'hip-hop', 'holidays', 'honky-tonk', 'hose', 'idm', 'indian', 'indie', 'indie-pop', 'indstrial', 'iranian', 'j-dance', 'j-idol', 'j-pop', 'j-rock', 'jazz', 'k-pop', 'kids', 'latin', 'latino', 'malay', 'mandopop', 'metal', 'metal-misc', 'metalcore', 'minimal-techno', 'movies', 'mpb', 'new-age', 'new-release', 'opera', 'pagode', 'party', 'philippines-opm', 'piano', 'pop', 'pop-film', 'post-dbstep', 'power-pop', 'progressive-hose', 'psych-rock', 'pnk', 'pnk-rock', 'r-n-b', 'rainy-day', 'reggae', 'reggaeton', 'road-trip', 'rock', 'rock-n-roll', 'rockabilly', 'romance', 'sad', 'salsa', 'samba', 'sertanejo', 'show-tnes', 'singer-songwriter', 'ska', 'sleep', 'songwriter', 'sol', 'sondtracks', 'spanish', 'stdy', 'smmer', 'swedish', 'synth-pop', 'tango', 'techno', 'trance', 'trip-hop', 'trkish', 'work-ot', 'world-msic']
     
 
-    return render_template("index.html")#, sorted_array = genres)
+    return render_template("index.html", sorted_array = genresArr)
 
 @app.route("/n")
 def index():
@@ -135,8 +141,9 @@ def callback():
 
     #compile playlist
     sp = spotipy.Spotify(auth=access_token)
-    genre =session['genre']
-    results = sp.recommendations(seed_genres = genre)
+    genreToSearch = 'pop'#session['genre']
+    id = "paramore"
+    results = sp.recommendations(seed_artists = id)
 
     tracksToShow = [orig_coord, dest_coord, url, result, driving_time, results]
     

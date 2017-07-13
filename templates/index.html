@@ -60,9 +60,10 @@
     <h3>Tell us about this Playlist</h3>
     <br>
     <label>
-      <input id="randomise" type="checkbox" value="randomise"> <h4>Randomise All</h4>
+      <input id="randomise" type="checkbox" value="randomise" style="display:none;">
     </label>
-    <hr>
+    <hr/>
+    
 
     <!-- Name -->
     <h3>Name your Playlist</h3>
@@ -91,11 +92,11 @@
     <!-- start of spice or nice -->
     <h3>Nice or Spice?</h3>
     <label>
-      <input id="explicit" type="checkbox" value="randomise"> Include Explicit Songs
+      <input id="explicit" type="checkbox" value="randomise" checked> Include Explicit Songs (recomended)
     </label>
     <br>
     <label>
-      <input id="nonexplicit" type="checkbox" value="randomise" checked> Include Non-Explicit Songs
+      <input id="nonexplicit" type="checkbox" value="randomise" checked> Include Non-Explicit Songs (very recomended!)
     </label>
     <hr>
     <button id="start" class="btn btn-lg btn-roadtripr" type="submit" onclick="submit()">submit</button>
@@ -106,6 +107,8 @@
     <div class="container text-center" style="display:none" id="thanks">
       <br></br>
       <h3>Thank you for using Roadtripr!</h3>
+      <h4>Your trip is being calculated</h4>
+      <img src="../static/images/load.gif">
       <br></br>
     </div>
 

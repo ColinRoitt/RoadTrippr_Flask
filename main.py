@@ -140,12 +140,41 @@ def callback():
     driving_time = result['rows'][0]['elements'][0]['duration']['value']
 
 
-    #compile playlist
+    #create spotipy object and set genre if none set
     sp = spotipy.Spotify(auth=access_token)
     genreToSearch = session['genre']
-    recomendationResult = sp.recommendations(seed_genres = genreToSearch)
+    if genreToSearch == "":
+        genreToSearch = 'pop'
 
-    tracksToShow = [orig_coord, dest_coord, url, result, driving_time, recomendationResult]
+    #make a wee playlist
+    username = str(sp.current_user()['id'])
+    if session['playlistname'] == "":
+        playlistName = 'newPlaylist'
+    else:
+        playlistName = session['playlistname']
+    sp.user_playlist_create(username, playlistName, public=True)
+    playlistId = str(sp.user_playlists(username)['items'][0]['uri'])
+
+    #get a song and add to playlist until full
+    tracks_to_add = []
+    playlist_length = 0
+    isExplicit = session['explicit']
+    isUnexplicit = session['nonexplicit']
+    bad_artists = []
+    if session['hated'] != '':
+        bad_artists = session['hated'].split(",")
+
+    while(playlist_length <= (driving_time+(60*5))):
+        recommendationResult = sp._get('recommendations', seed_genres=genreToSearch, limit=1)['tracks'][0]
+        if ((recommendationResult['explicit'] == False) and (isUnexplicit == 'true')) or ((recommendationResult['explicit'] == True) and (isExplicit == 'true')):
+            if not(recommendationResult['artists'][0]['name'] in bad_artists):
+                tracks_to_add.append(recommendationResult['uri'])
+                playlist_length += recommendationResult['duration_ms']/1000
+
+    sp.user_playlist_add_tracks(username, playlistId, tracks_to_add)
+    
+    
+    tracksToShow = [orig_coord, dest_coord, url, result, driving_time, recommendationResult, tracks_to_add]
     
 
     return render_template("display.html",sorted_array=tracksToShow)

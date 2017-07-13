@@ -8,6 +8,7 @@ import googlemaps
 import datetime
 import simplejson
 from random import randint
+#pip install simplejson flask googlemaps
 
 
 # Authentication Steps, paramaters, and responses are defined at https://developer.spotify.com/web-api/authorization-guide/
@@ -141,9 +142,8 @@ def callback():
 
     #compile playlist
     sp = spotipy.Spotify(auth=access_token)
-    genreToSearch = 'pop'#session['genre']
-    id = "paramore"
-    results = sp.recommendations(seed_artists = id)
+    genreToSearch = session['genre']
+    results = sp.recommendations(seed_genres = genreToSearch)
 
     tracksToShow = [orig_coord, dest_coord, url, result, driving_time, results]
     
